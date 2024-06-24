@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Customer - Dashboard">
+    <meta name="author" content="Shittu Olumide">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Customer - Dashboard</title>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div class="about">
+        <h1>Customer - Dashboard</h1>
+        <h2>Description: Creating Interactive Dashboards with D3.js</h2>
+
+        <p>Project Overview: This is an analysis of churned customer. The <a
+                href="https://www.kaggle.com/blastchar/telco-customer-churn">dataset</a> contains rows and columns, each
+            row
+            represents a customer, each column contains customer’s attributes described on the column Metadata.
+
+            This analysis is achieved using Python's Flask library to serve the data and Javascript D3.js library to
+            visualize the analysis.
+
+        </p>
+        <h2>Author: Shittu Olumide</h2>
+        <h4>The code for this dashboard can be found in this Github <a
+                href="https://github.com/zenUnicorn/Customer-churn-Dashboard-with-D3.js-and-Flask/">repo</a>
+        </h4>
+    </div>
+
+    <div class="visualization">
+        <div id="pieChart"></div>
+        <div id="barChart"></div>
+    </div>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script>
+        const pieChartDataUrl = "{{ url_for('get_piechart_data') }}";
+        const barChartDataUrl = "{{ url_for('get_barchart_data') }}";
+    </script>
+    <script src="{{ url_for('static', filename='js/cs_pieChart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/cs_barChart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/cs_updateBarChart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+
+</html>
